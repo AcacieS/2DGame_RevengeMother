@@ -9,11 +9,8 @@ public class InteractionBeer : MonoBehaviour
   public GameObject beer;
 
   //interaction
-  private int NUMBBEER = 2;
+  private int NUMBBEER = 4;
   private bool interactAllowed;
-  private int numbCleanB=2;
-  private int numbDirtyB=0;
-  private int numbFullB=0;
 
   //number of
    private int coins = 0;
@@ -105,7 +102,7 @@ public class InteractionBeer : MonoBehaviour
   private bool ActiveTable(){
     for(int i = 1; i<=NUMBBEER; i++){
           beer = GameObject.Find("/Player_Anna/Plateau/Beer"+i+"");
-          if(beer.GetComponent<Animator>().GetBool("onHandBeer")&&beer.GetComponent<Animator>().GetInteger("stateBeer")==2){
+          if(beer.GetComponent<Animator>().GetBool("onHandBeer")&&beer.GetComponent<Animator>().GetInteger("stateBeer")==2&&currentCollisions[0].GetComponent<Animator>().GetBool("animCustF")){
             Debug.Log(i);
             posBeer=i;
             return true;

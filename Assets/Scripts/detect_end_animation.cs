@@ -7,6 +7,7 @@ public class detect_end_animation : MonoBehaviour
     //public;
     public InteractionBeer InteractB;
     public GameObject beer;
+    public GameObject tables;
 
     //private
     public bool isFinished;
@@ -16,9 +17,9 @@ public class detect_end_animation : MonoBehaviour
         anim = GetComponent<Animator>();
     }
     private void Update(){
+    
         if(GetComponent<Animator>().GetBool("isFinishedB")){
             if(Input.GetKeyDown(KeyCode.F)&&isPlayer){
-                //Console.Log(anim.Get)
                 beer = GameObject.Find("/Player_Anna/Plateau/Beer"+anim.GetInteger("posB")+"");
                 beer.GetComponent<Animator>().SetBool("isFAnimate",true);
                 if(tag=="BeerMachine"){
@@ -28,14 +29,20 @@ public class detect_end_animation : MonoBehaviour
                 }else if(tag=="CleanGlassMachine"){
                     beer.GetComponent<Animator>().SetInteger("stateBeer",1);
                 }else{
+                    anim.SetBool("animCustF", false);
                     beer.GetComponent<Animator>().SetInteger("stateBeer",0);
                     anim.SetBool("isCustomerP", false);
+                    tables = GameObject.Find("Tables");
+
+                    int numbAvailable = tables.GetComponent<Animator>().GetInteger("availableTable");
+                    tables.GetComponent<Animator>().SetInteger("availableTable",numbAvailable+1);
                 }
                 beer.GetComponent<Animator>().SetBool("onHandBeer",true);
                 anim.SetInteger("posB",0);
                 anim.SetBool("isActive",false);
                 anim.SetBool("isHereB",false);
                 anim.SetBool("isFinishedB", false);
+                
             }
         }
     }
@@ -54,5 +61,8 @@ public class detect_end_animation : MonoBehaviour
         InteractB.coinss++;
         Debug.Log(InteractB.coinss);
         
+    }
+    public void finishedCustomerAnim(){
+        anim.SetBool("animCustF", true);
     }
 }
