@@ -75,8 +75,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 769156198, guid: 75cc7cab72c04ee459290f83df98dc26, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 1235450982, guid: 5d3472ac9e056914498743228b754bb6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,18 +100,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.16139048}
+  m_Offset: {x: -0.015229702, y: -0.52696747}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1}
+    oldSize: {x: 2.6666667, y: 2.6666667}
     newSize: {x: 3, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 0.67721903}
+  m_Size: {x: 2.552991, y: 0.9801096}
   m_EdgeRadius: 0
 --- !u!95 &1098903052844299349
 Animator:
@@ -145,6 +145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c6b5a07997aed44a23787eee3bc3dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customerPanel: {fileID: 0}
+  CustomersText: {fileID: 0}
   InteractB: {fileID: 0}
   beer: {fileID: 0}
+  tables: {fileID: 0}
   isFinished: 0

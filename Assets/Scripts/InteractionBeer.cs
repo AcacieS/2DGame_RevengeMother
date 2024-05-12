@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class InteractionBeer : MonoBehaviour
 {
-  public int coinss = 0;
+  //public Text customersText;
   public int posBeer = 1;
   public GameObject beer;
+  public GameObject EndPanel;
 
   //interaction
   private int NUMBBEER = 4;
   private bool interactAllowed;
 
   //number of
-   private int coins = 0;
+   public int customers = 25;
    private List<GameObject> currentCollisions = new List<GameObject> (1);
    private bool finishedAnimate=true;
    //public bool isHereM = false;
    //[SerializeField] private Text coinsText;
    
    private void Update(){
+    
     if(interactAllowed && Input.GetKeyDown(KeyCode.E)){
       Interact();
     }
@@ -79,7 +81,7 @@ public class InteractionBeer : MonoBehaviour
    }
    private bool ActiveBeerMachine(){
         for(int i = 1; i<=NUMBBEER; i++){
-          beer = GameObject.Find("/Player_Anna/Plateau/Beer"+i+"");
+          beer = GameObject.Find("/Player_Marianne/Plateau/Beer"+i+"");
           if(beer.GetComponent<Animator>().GetBool("onHandBeer")&&beer.GetComponent<Animator>().GetInteger("stateBeer")==1){
             Debug.Log(i);
             posBeer=i;
@@ -90,7 +92,7 @@ public class InteractionBeer : MonoBehaviour
    }
    private bool ActiveCleanMachine(){
         for(int i = 1; i<=NUMBBEER; i++){
-          beer = GameObject.Find("/Player_Anna/Plateau/Beer"+i+"");
+          beer = GameObject.Find("/Player_Marianne/Plateau/Beer"+i+"");
           if(beer.GetComponent<Animator>().GetBool("onHandBeer")&&beer.GetComponent<Animator>().GetInteger("stateBeer")==0){
             Debug.Log(i);
             posBeer=i;
@@ -101,7 +103,7 @@ public class InteractionBeer : MonoBehaviour
    }
   private bool ActiveTable(){
     for(int i = 1; i<=NUMBBEER; i++){
-          beer = GameObject.Find("/Player_Anna/Plateau/Beer"+i+"");
+          beer = GameObject.Find("/Player_Marianne/Plateau/Beer"+i+"");
           if(beer.GetComponent<Animator>().GetBool("onHandBeer")&&beer.GetComponent<Animator>().GetInteger("stateBeer")==2&&currentCollisions[0].GetComponent<Animator>().GetBool("animCustF")){
             Debug.Log(i);
             posBeer=i;
